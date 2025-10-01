@@ -7,7 +7,8 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5; */
+    background-color: #eaeaea;
     color: #333;
     overflow-x: hidden;
 }
@@ -112,6 +113,12 @@ body {
     display: block;
 }
 
+.icon-btn .icon-search {
+    width: 20px;
+    height: 20px;
+    color: white;
+}
+
 /* .cart-btn {
     border-radius: 25px;
     width: auto;
@@ -151,34 +158,27 @@ body {
 }
 
 
-/* Sidebar Styles */
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 80px;
-    width: 200px;
-    height: calc(100vh - 80px);
-    background: white;
-    padding: 30px 20px;
-    border-right: 1px solid #eee;
-    z-index: 100;
+/* Menu Navigation Styles */
+.menu-navigation {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 10;
 }
 
-.sidebar-content {
-    margin-bottom: 40px;
-}
-
-.sidebar-link {
+.menu-link {
     display: block;
     text-decoration: none;
     color: #333;
     font-weight: 600;
     font-size: 16px;
-    margin-bottom: 20px;
     transition: color 0.3s ease;
 }
 
-.sidebar-link:hover {
+.menu-link:hover {
     color: #666;
 }
 
@@ -220,10 +220,10 @@ body {
 
 /* Main Content Styles */
 .main-content {
-    margin-left: 200px;
     margin-top: 80px;
-    padding: 0 40px 120px 40px; /* Removed top padding */
-    min-height: calc(100vh - 200px); /* Adjusted for bottom nav */
+    padding: 0 40px 120px 40px;
+    min-height: calc(100vh - 200px);
+    position: relative;
 }
 
 .hero-section {
@@ -269,7 +269,7 @@ body {
     background: #f0f0f0;
     border: none;
     border-radius: 8px;
-    padding: 15px 30px;
+    padding: 15px 50px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
@@ -277,6 +277,8 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #333;
+    min-width: 200px;
+    justify-content: center;
 }
 
 .cta-button:hover {
@@ -332,18 +334,13 @@ body {
 
 /* Bottom Navigation Styles */
 .bottom-navigation {
-    position: fixed;
-    bottom: 0;
-    left: 200px;
-    right: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 20px 40px;
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-top: 1px solid #eee;
-    z-index: 1000;
+    gap: 20px;
+    z-index: 10;
 }
 
 .navigation-controls {
