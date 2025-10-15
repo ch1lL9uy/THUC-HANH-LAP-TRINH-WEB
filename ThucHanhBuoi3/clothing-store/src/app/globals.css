@@ -1,0 +1,570 @@
+:root {
+  --background: #eaeaea;
+  --foreground: #333333;
+  --font-sans: var(--font-geist-sans, "Arial", sans-serif);
+  --font-mono: var(--font-geist-mono, "Courier New", monospace);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1c1c1c;
+    --foreground: #ededed;
+  }
+}
+
+html {
+  font-size: 120%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  background-color: #eaeaea;
+  filter: var(--background) url(#grainy-texture);
+  /* background-image: url("/Home_background.png"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  padding: 18px 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.menu-btn span {
+  width: 24px;
+  height: 2px;
+  background: #333;
+  transition: all 0.3s ease;
+}
+
+.main-nav {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-link {
+  color: #333;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #666;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  /* border-radius: 50%; */
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.icon-btn:hover {
+  transform: translateY(-2px);
+}
+
+.icon-btn img {
+  width: 30px;
+  height: 30px;
+  /* object-fit: contain; */
+  display: block;
+}
+
+/* .icon-btn .icon-search {
+  width: 24px;
+  height: 24px;
+  color: white;
+} */
+
+.cart-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  border-radius: 30px;
+  padding: 0 24px;
+  height: 54px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cart-btn:hover {
+  background: #555;
+  transform: translateY(-2px);
+}
+
+/* .cart-btn img {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+.cart-text {
+  color: white;
+  font-weight: 500;
+  font-size: 0.875rem;
+} */
+
+.menu-navigation {
+  position: absolute;
+  left: 36px;
+  top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index: 10;
+}
+
+.menu-link {
+  display: block;
+  color: #333;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.menu-link:hover {
+  color: #666;
+}
+
+.main-content {
+  margin-top: 96px;
+  padding: 0 48px 144px 48px;
+  min-height: calc(100vh - 240px);
+  position: relative;
+}
+
+.hero-section {
+  display: grid;
+  /* grid-template-columns: 456px 1fr 336px; */
+  grid-template-columns: 456px 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+  height: calc(100vh - 240px);
+  position: relative;
+  padding: 48px 0;
+}
+
+.hero-text {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 0;
+}
+
+.hero-title {
+  font-size: 3.8rem;
+  font-weight: 900;
+  line-height: 0.9;
+  color: #333;
+  margin-bottom: 24px;
+  letter-spacing: -2.4px;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #888;
+  margin-bottom: 0;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+.hero-images {
+  display: contents;
+}
+
+.image-container {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+}
+
+.image-container:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+}
+
+.main-image {
+  grid-column: 2;
+  grid-row: 1;
+  height: 504px;
+}
+
+.secondary-image {
+  grid-column: 3;
+  grid-row: 1;
+  /* height: 384px; */
+  height: 504px;
+  align-self: center;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bottom-navigation {
+  position: absolute;
+  bottom: 48px;
+  left: 48px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  z-index: 10;
+}
+
+.cta-button {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #d9d9d9;
+  border: none;
+  border-radius: 10px;
+  padding: 18px 60px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #333;
+  min-width: 240px;
+  justify-content: center;
+}
+
+.cta-button:hover {
+  background: #e0e0e0;
+  transform: translateX(6px);
+}
+
+.arrow {
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover .arrow {
+  transform: translateX(6px);
+}
+
+.navigation-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-arrow {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #ddd;
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.125rem;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+  border-color: #333;
+  color: #333;
+  transform: translateY(-2px);
+}
+
+.nav-arrow.left:hover {
+  transform: translateY(-2px) translateX(-2px);
+}
+
+.nav-arrow.right:hover {
+  transform: translateY(-2px) translateX(2px);
+}
+
+@media (max-width: 1024px) {
+  .main-content {
+    margin-left: 0;
+    padding: 24px 24px 144px 24px;
+  }
+
+  .hero-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 36px;
+    text-align: center;
+    height: auto;
+    padding: 24px 0;
+  }
+
+  .hero-text {
+    grid-column: 1;
+    grid-row: 1;
+    padding-left: 0;
+  }
+
+  .main-image {
+    grid-column: 1;
+    grid-row: 2;
+    height: 420px;
+  }
+
+  .secondary-image {
+    grid-column: 1;
+    grid-row: 3;
+    height: 336px;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .bottom-navigation {
+    left: 0;
+    padding: 18px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 18px 24px;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .bottom-navigation {
+    flex-direction: column;
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .navigation-controls {
+    order: -1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-text > * {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-title {
+  animation-delay: 0.2s;
+}
+
+.hero-subtitle {
+  animation-delay: 0.4s;
+}
+
+.cta-button {
+  animation-delay: 0.6s;
+}
+
+.image-container {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.main-image {
+  animation-delay: 0.3s;
+}
+
+.secondary-image {
+  animation-delay: 0.5s;
+}
+
+
+/* layout cho thanh tìm kiếm */
+/* CSS for Search Overlay */
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1500; /* Cao hơn header cũ */
+  
+  /* Nền tối thay thế cho header */
+  background: rgba(28, 28, 28, 0.98); 
+  backdrop-filter: blur(10px);
+
+  /* Canh chỉnh giống header gốc */
+  padding: 18px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Animation */
+  animation: slideDown 0.3s ease-in-out;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 800px; /* Tăng chiều rộng tối đa */
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  width: 100%;
+  height: 50px;
+  padding: 10px 50px 10px 20px; /* Thêm padding bên phải cho nút đóng */
+  font-size: 1.1rem;
+  
+  /* Style của input màu sáng */
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+.search-bar input::placeholder {
+  color: #888;
+}
+
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  /* Style của nút đóng màu tối */
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Định nghĩa animation trượt từ trên xuống */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Kết thúc cho thanh tìm kiếm */
+
+
+/* CSS for New Products Section */
+
+.products-section {
+  padding: 100px 0; /* Tạo khoảng trống trên và dưới cho section */
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 60px;
+  color: var(--foreground);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.product-card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
